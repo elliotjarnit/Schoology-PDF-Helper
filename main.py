@@ -7,11 +7,11 @@ clear()
 
 print(Fore.LIGHTBLUE_EX + "Schoology PDF Uploader\n\n" + Style.RESET_ALL)
 if platform == "darwin":
-    print("You will need to login to your schoology account")
+    print("You will need to login to your Schoology account")
     input("Press " + Fore.RED + "enter" + Style.RESET_ALL + " to continue")
     clear()
 elif platform == "win32":
-    print("You will need to login to your schoology account")
+    print("You will need to login to your Schoology account")
     input("Press " + Fore.RED + "enter" + Style.RESET_ALL + " to continue")
     clear()
 else:
@@ -45,7 +45,7 @@ except:
 
 url = str("https://api.schoology.com/v1/users/" + login.userID + "/sections")
 
-headers = {"Accept": "application/json", "Content-Type": "application/json"}
+headers = {"Accept": "application/json"}
 getSections = makeRequest("get", url, oauth, headers)
 SectionRemaining = str(json.loads(getSections.text)["section"])
 clear()

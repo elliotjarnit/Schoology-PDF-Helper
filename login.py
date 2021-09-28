@@ -4,14 +4,13 @@ from functions import *
 class Login:
     def __init__(self):
         if platform == "darwin":
-            ChromeDriver = os.getcwd().replace("/PDFHelper", "") + "/ChromeWebDrivers/chromedriver"
+            ChromeDriver = os.getcwd() + "/ChromeWebDrivers/chromedriver"
         elif platform == "win32":
-            ChromeDriver = os.getcwd().replace("\\PDFHelper", "") + "\ChromeWebDrivers\chromedriver.exe"
-
+            ChromeDriver = os.getcwd() + "\\ChromeWebDrivers\\chromedriver.exe"
         print(ChromeDriver)
         try:
             driver = webdriver.Chrome(ChromeDriver)
-        except:
+        except ConnectionError:
             clear()
             printError("Please update google chrome to latest version")
             time.sleep(5)
